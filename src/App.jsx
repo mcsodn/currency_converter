@@ -1,12 +1,11 @@
-import './App.css'
+import './App.css';
+import HeaderElement from "./components/HeaderElement/HeaderElement";
 
 function App() {
 
   return (
     <>
-      <div>
-        <h1>Конвертер валют</h1>
-      </div>
+      <HeaderElement headerText='Конвертер валют' />
       <div className="card">
         <p>Converter block</p>
       </div>
