@@ -1,3 +1,5 @@
+import './HeaderElement.css';
+
 const HeaderElement = (props) => {
     return <h1>{props.headerText}</h1>
 }
