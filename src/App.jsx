@@ -9,6 +9,7 @@ function App() {
       <div className="card">
         <p>Converter block</p>
       </div>
+      <p>На основании данных https://www.exchangerate-api.com/</p>
     </>
   )
 }
