@@ -1,0 +1,43 @@
+.currency-block {
+    background-color: #E7E7E7;
+    width: 20em;
+    padding: 2em;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: .5em;
+}
+
+.currency-block input,select {
+    background-color: #E7E7E7;
+    color: #000;
+    border: 0px;
+    padding: 0px;
+}
+
+.currency-block input {
+    font: normal 800 3em/1.1 "Inter", sans-serif;
+    letter-spacing: .03em;
+}
+
+.currency-block select {
+    font: normal 400 1.6em/1.1 "Inter", sans-serif;
+    letter-spacing: .03em;
+    width: 3em;
+    appearance: none;
+}
+
+.currency-block select:not([multiple]) {
+  padding-right: .9em;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.25em) 0.22em;
+  background-size: 0.4em auto;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACMSURBVHgB7dRhCoAgDIbh1S7mzfJo6ybdxBQULKY5t3/5wgdl8PRPgGdHnkkJCnlqtMbUqGOwaRTjrrgtw9zPUicIwBRZoVg9kwWKr3fSosickQbFxjnNoi1wGu2BU+gXKEZHQBE6Cg6jEnAI3UFe6HzbQBh3zZV5ELawhf0bc5ZYyVtiHOrBKA9K7AZPKoSylekQnQAAAABJRU5ErkJggg==");
+}
+
+.currency-block p {
+    font-size: 12px;
+    margin: 0px;
+}
