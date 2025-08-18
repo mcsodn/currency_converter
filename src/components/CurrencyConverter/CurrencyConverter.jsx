@@ -1,10 +1,11 @@
 import './CurrencyConverter.css';
+import CurrencyBlock from "../CurrencyBlock/CurrencyBlock";
 
 const CurrencyConverter = () => {
     return <div className='currency-converter_block'>
-        <div>1</div>
-        <button type="button">Поменять</button>
-        <div>2</div>
+        <CurrencyBlock />
+        <button type="button"></button>
+        <CurrencyBlock />
     </div>
 }
 

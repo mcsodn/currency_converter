@@ -2,4 +2,13 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+}
+
+.currency-converter_block button {
+  background-color: white;
+  background: url('../../assets/change_arrows.svg') no-repeat center / contain;
+  width: 3em;
+  height: 3em;
 }
