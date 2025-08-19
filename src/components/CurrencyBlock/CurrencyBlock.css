@@ -30,9 +30,9 @@
 }
 
 .currency-block select:not([multiple]) {
-  padding-right: .9em;
+  padding-right: .5em;
   background-repeat: no-repeat;
-  background-position: calc(100% - 0.25em) 0.22em;
+  background-position: calc(100% - 0.16em) 0.23em;
   background-size: 0.4em auto;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACMSURBVHgB7dRhCoAgDIbh1S7mzfJo6ybdxBQULKY5t3/5wgdl8PRPgGdHnkkJCnlqtMbUqGOwaRTjrrgtw9zPUicIwBRZoVg9kwWKr3fSosickQbFxjnNoi1wGu2BU+gXKEZHQBE6Cg6jEnAI3UFe6HzbQBh3zZV5ELawhf0bc5ZYyVtiHOrBKA9K7AZPKoSylekQnQAAAABJRU5ErkJggg==");
 }
