@@ -9,17 +9,12 @@ const CurrencyBlock = (props) => {
 
     return <div className='currency-block'>
         <input 
-            type="text" 
-            name="" 
-            id="" 
+            type="text"
             value={convertDotToComma(currencyValue)}
             onChange={(e) => setCurrencyValue(e.target.value)}
         /> 
-        <select name="" id="" >
-            
-            {Object.keys(props.data.conversion_rates).map(value => <option key={value} selected={!props.isMainCurrency && (value === props.sec) ? true : false}>{value}</option>)}
-            {/* todo: добавить пропс с базовой валютой с которой рендерится блок */}
-            {/* todo: к ней прикрутить базовую сумму и курс */}
+        <select value={!props.isMainCurrency && props.sec}>            
+            {Object.keys(props.data.conversion_rates).map(value => <option key={value}>{value}</option>)}
         </select>
         <p>{
             props.isMainCurrency ? 
