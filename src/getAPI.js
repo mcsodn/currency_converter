@@ -12,7 +12,7 @@ function useFetch(currency) {
     async function fetchData() {
       try {
         // Выполняем API-запрос на запрошенную валюту
-        const response = await fetch(API_URL+currency);
+        const response = await fetch(API_URL + currency);
         if (!response.ok) {
           throw new Error('Ошибка загрузки данных');
         }
