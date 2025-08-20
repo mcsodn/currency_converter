@@ -1,5 +1,7 @@
-const convertDotToComma = data => {
-    return data.toString().replace('.',',');
+const formatDigitValue = data => {
+    const regexpNonDigits = /[^0-9,.]/g;
+    const regexpMultiComma = /[,.]+/g;
+    return data.toString().replace(regexpNonDigits,'').replace(regexpMultiComma,',');
 }
 
-export default convertDotToComma;
+export default formatDigitValue;
