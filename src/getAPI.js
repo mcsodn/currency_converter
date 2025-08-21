@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 function useFetch(currency) {
-    const API_URL = 'https://v6.exchangerate-api.com/v6/e5cfbf2929bb755088a14a40/latest/';
+    const API_URL = 'https://v6.exchangerate-api.com/v6/549902b95879183ad480685b/latest/';
 
     const [data,setData] = useState(null);
     const [loading,setLoading] = useState(true);
