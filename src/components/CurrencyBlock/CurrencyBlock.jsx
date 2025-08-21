@@ -1,18 +1,19 @@
 import './CurrencyBlock.css';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import formatDigitValue from '../../helper';
-import { useEffect } from 'react';
 
 const CurrencyBlock = (props) => {
-    const [currencyValue, setCurrencyValue] = useState(props.isMainCurrency ? props.mainCurrencyValue : props.secCurrencyValue);
-
+    const [currencyValue, setCurrencyValue] = useState('0');
+    
     useEffect(() => {
         setCurrencyValue(props.isMainCurrency ? props.mainCurrencyValue : props.secCurrencyValue)
     },[props])
 
     return <div className='currency-block'>
         <input 
-            type="text"
+            type={'number'}
+            step={'0.01'}
+            min={'0'}
             id={props.isMainCurrency ? 'main-currency' : 'sec-currency'}
             value={formatDigitValue(currencyValue)}
             onChange={(e) => {
