@@ -1,7 +1,5 @@
 const formatDigitValue = data => {
-    const regexpNonDigits = /[^0-9.]/g;
-    const regexpMultiComma = /[.,]+/g;
-    return data.toString().replace(regexpNonDigits,'').replace(regexpMultiComma,'.');
+    return parseFloat(data);
 }
 
 export default formatDigitValue;
