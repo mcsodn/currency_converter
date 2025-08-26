@@ -8,7 +8,7 @@
   text-align: left;
 }
 
-p {
+p, a {
   color: #888;
   font-size: 18px;
   margin: 0%;
