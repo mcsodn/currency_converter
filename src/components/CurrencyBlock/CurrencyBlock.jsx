@@ -24,7 +24,7 @@ const CurrencyBlock = (props) => {
         </select>
         <p>{
             props.isMainCurrency ? 
-            `1 ${props.mainCurrency} = ${formatDigitValue(props.data.conversion_rates[props.secCurrency])} ${props.secCurrency}` : 
+            `1 ${props.mainCurrency} = ${formatDigitValue(props.data.conversion_rates[props.secCurrency].toFixed(4))} ${props.secCurrency}` : 
             `1 ${props.secCurrency} = ${formatDigitValue((1 / props.data.conversion_rates[props.secCurrency]).toFixed(4))} ${props.mainCurrency}`
         }</p>
     </div>
