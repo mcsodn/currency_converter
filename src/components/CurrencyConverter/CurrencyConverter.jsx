@@ -68,6 +68,18 @@ const CurrencyConverter = () => {
         )
     }
 
+    // функция для кнопки смены местами
+    const swapCurrency = () => {
+        setCurrencyPair({
+            mainCurrency: currencyPair.secCurrency,
+            secCurrency: currencyPair.mainCurrency
+        });
+        setCurrencyValues({
+            ...currencyValues,
+            secCurrencyValue: (currencyValues.mainCurrencyValue / dataAPI.data.conversion_rates[currencyPair.secCurrency]).toFixed(2)
+        });
+    }
+
     if (dataAPI.loading) {
         return <div className='currency-converter_block'>
             <p>Загрузка...</p>
@@ -84,7 +96,7 @@ const CurrencyConverter = () => {
 
         return <div className='currency-converter_block'>
             <CurrencyBlock isMainCurrency={true} {...CBProps} />
-            <button type="button"></button>
+            <button type="button" onClick={swapCurrency}></button>
             <CurrencyBlock {...CBProps} />
         </div>
     }
