@@ -1,5 +1,5 @@
 import './CurrencyBlock.css';
-import formatDigitValue from '../../helper';
+import {formatDigitValue, getRange} from '../../helper';
 
 const CurrencyBlock = (props) => {
     return <div className='currency-block'>
@@ -24,8 +24,8 @@ const CurrencyBlock = (props) => {
         </select>
         <p>{
             props.isMainCurrency ? 
-            `1 ${props.mainCurrency} = ${formatDigitValue(props.data.conversion_rates[props.secCurrency].toFixed(4))} ${props.secCurrency}` : 
-            `1 ${props.secCurrency} = ${formatDigitValue((1 / props.data.conversion_rates[props.secCurrency]).toFixed(4))} ${props.mainCurrency}`
+            `1 ${props.mainCurrency} = ${formatDigitValue(getRange(props,props.secCurrency,props.mainCurrency).toFixed(4))} ${props.secCurrency}` : 
+            `1 ${props.secCurrency} = ${formatDigitValue(getRange(props,props.mainCurrency,props.secCurrency).toFixed(4))} ${props.mainCurrency}`
         }</p>
     </div>
 }

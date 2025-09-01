@@ -1,24 +1,22 @@
 import './CurrencyConverter.css';
 import CurrencyBlock from "../CurrencyBlock/CurrencyBlock";
-import useFetch from '../../getAPI';
 import { useState } from "react";
+import { getRange } from '../../helper';
 
 // Компонент конвертера:
 // 2 блока валюты и кнопка между ними
-const CurrencyConverter = () => {
+const CurrencyConverter = ({dataAPI}) => {
     // Стейт выбранной валюты
     const [currencyPair,setCurrencyPair] = useState({
         mainCurrency: 'USD', 
         secCurrency: 'RUB'
     });
+
     // Стейт введенного значения для каждой валюты
     const [currencyValues,setCurrencyValues] = useState({
         mainCurrencyValue: '0', 
         secCurrencyValue: '0'
     });
-
-    // Данные из апи
-    const dataAPI = useFetch(currencyPair.mainCurrency);
     
     // Функция для установки новой валюты в селекте
     const setCurrency = event => {
@@ -39,7 +37,7 @@ const CurrencyConverter = () => {
                 ...currencyValues,
                 // значение в dataAPI остается для предыдущей валюты
                 // но не проблема, вычислим по коэф
-                secCurrencyValue: ((currencyValues.mainCurrencyValue * dataAPI.data.conversion_rates[currencyPair.secCurrency]) / dataAPI.data.conversion_rates[newCurrency]).toFixed(2)
+                secCurrencyValue: (currencyValues.mainCurrencyValue * getRange(dataAPI,currencyPair.secCurrency,newCurrency)).toFixed(2)
             });
         } else {
             setCurrencyPair({
@@ -50,7 +48,7 @@ const CurrencyConverter = () => {
             // поэтому переустановка и пересчет происходят без ошибок
             setCurrencyValues({
                 ...currencyValues,
-                secCurrencyValue: (currencyValues.mainCurrencyValue * dataAPI.data.conversion_rates[event.target.value]).toFixed(2)
+                secCurrencyValue: (currencyValues.mainCurrencyValue * getRange(dataAPI,event.target.value,currencyPair.mainCurrency)).toFixed(2)
             });
         }
     }
@@ -60,9 +58,9 @@ const CurrencyConverter = () => {
         setCurrencyValues(
             event.target.id === 'main-currency__input' ? {
                 mainCurrencyValue: event.target.value,
-                secCurrencyValue: (+event.target.value * dataAPI.data.conversion_rates[currencyPair.secCurrency]).toFixed(2)
+                secCurrencyValue: (+event.target.value * getRange(dataAPI,currencyPair.secCurrency,currencyPair.mainCurrency)).toFixed(2)
             } : {
-                mainCurrencyValue: (+event.target.value / dataAPI.data.conversion_rates[currencyPair.secCurrency]).toFixed(2),
+                mainCurrencyValue: (+event.target.value * getRange(dataAPI,currencyPair.mainCurrency,currencyPair.secCurrency)).toFixed(2),
                 secCurrencyValue: event.target.value
             }
         )
@@ -76,7 +74,7 @@ const CurrencyConverter = () => {
         });
         setCurrencyValues({
             ...currencyValues,
-            secCurrencyValue: (currencyValues.mainCurrencyValue / dataAPI.data.conversion_rates[currencyPair.secCurrency]).toFixed(2)
+            secCurrencyValue: (currencyValues.mainCurrencyValue * getRange(dataAPI,currencyPair.mainCurrency,currencyPair.secCurrency)).toFixed(2)
         });
     }
 
